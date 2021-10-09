@@ -32,6 +32,8 @@ public class CarDetails {
     }
 
     public void setMaint_cert_expiration_dt(String maint_cert_expiration_dt) {
+        
+        
         this.maint_cert_expiration_dt = maint_cert_expiration_dt;
     }
     
@@ -41,9 +43,13 @@ public class CarDetails {
     }
 
     public void setManufacture_year(String manufacture_year) {
+        
+        if(Integer.parseInt(manufacture_year) > 1990 && Integer.parseInt(manufacture_year) < 2021) {
         this.manufacture_year = manufacture_year;
+    } else {
+            JOptionPane.showMessageDialog(null, "Please enter Manufacture Year only between 1990 to 2021.");
+        }
     }
-    
 
     public String getAvailability() {
         return availability;
@@ -53,8 +59,6 @@ public class CarDetails {
         
         if(!availability.contains("") && !availability.isBlank()) {
         this.availability = availability;
-        } else {
-            JOptionPane.showMessageDialog(null, "Please check atleast one checkbox for availability.");
         }
     } 
 
@@ -92,9 +96,14 @@ public class CarDetails {
 
     public void setMin_max_seats(int min_max_seats) { 
        // try {
-         //   if(min_max_seats != ' ' && min_max_seats >0 && min_max_seats < 9) {               
+           if(min_max_seats != ' ' && min_max_seats >2 && min_max_seats < 10) {               
         this.min_max_seats = min_max_seats;
-       
+           } else {
+                JOptionPane.showMessageDialog(null, "Please enter valid number of seats.");
+           }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "Please enter valid number of seats.");
+//          }
        // JOptionPane.showMessageDialog(null, "gaya andar");
         //}
        // }catch (Exception e) {
@@ -106,7 +115,12 @@ public class CarDetails {
     }
 
     public void setSerial_number(long serial_number) {
-        this.serial_number = serial_number;
+        
+        if(String.valueOf(serial_number).length() < 8) {
+             this.serial_number = serial_number;
+        } else {
+            JOptionPane.showMessageDialog(null, "Please enter valid Serial Number");
+        }
     }
 
     public String getModel_num() {
@@ -114,20 +128,26 @@ public class CarDetails {
     }
 
     public void setModel_num(String model_num) {
+        
+        if(model_num.matches("\\b((?=[A-Za-z/ -]{0,19}\\d)[A-Za-z0-9/ -]{4,20})\\b")) {
         this.model_num = model_num;
+    } else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid city name.");
+        }
     }
-
     public String getCity() {
         return city;
     }
 
     public void setCity(String city) {
-        this.city = city;
+        
+        if(city.matches("[A-Za-z]+")) {
+             this.city = city;
+        } else {
+            JOptionPane.showMessageDialog(null, "Please enter a valid city name.");
+        }
     }
-
   
-    
-    
     @Override
     public String toString() {
         return car_name;

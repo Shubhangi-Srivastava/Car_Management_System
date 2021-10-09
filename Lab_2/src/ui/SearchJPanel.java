@@ -39,10 +39,9 @@ public class SearchJPanel extends javax.swing.JPanel {
         btnyearsearch = new javax.swing.JButton();
         btnMinMumSeats = new javax.swing.JButton();
         btnCity = new javax.swing.JButton();
-        btnQues9 = new javax.swing.JButton();
         btnCarmanufacturers = new javax.swing.JButton();
         btnModelNum = new javax.swing.JButton();
-        btnQues11 = new javax.swing.JButton();
+        btnExpiry = new javax.swing.JButton();
         btnSerialNum = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -95,8 +94,6 @@ public class SearchJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnQues9.setText("When was the last time the fleet catalog was updated.");
-
         btnCarmanufacturers.setText("List all the car manufacturers used by the (this) Uber.");
         btnCarmanufacturers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,10 +108,10 @@ public class SearchJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnQues11.setText("List all cars that have expired maintenance certificate.");
-        btnQues11.addActionListener(new java.awt.event.ActionListener() {
+        btnExpiry.setText("List all cars that have expired maintenance certificate.");
+        btnExpiry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQues11ActionPerformed(evt);
+                btnExpiryActionPerformed(evt);
             }
         });
 
@@ -170,18 +167,21 @@ public class SearchJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(btnAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(btnModelNum, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(337, 337, 337))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnMinMumSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnExpiry, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(btnModelNum, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnyearsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnQues9, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnCity, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnSearchBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -191,24 +191,16 @@ public class SearchJPanel extends javax.swing.JPanel {
                         .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(224, 224, 224)
-                        .addComponent(btnFirstCar, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnFirstCar, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSerialNum, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnQues11, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnMinMumSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCity, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, 0))
+                        .addGap(154, 154, 154)
+                        .addComponent(btnSerialNum, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAvailability, btnMinMumSeats, btnSearchBrand, btnSerialNum, btnyearsearch});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAvailability, btnMinMumSeats, btnSearchBrand, btnyearsearch});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCarmanufacturers, btnCity, btnModelNum, btnQues11, btnQues9});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCarmanufacturers, btnCity, btnExpiry, btnModelNum});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,20 +222,18 @@ public class SearchJPanel extends javax.swing.JPanel {
                     .addComponent(btnCarmanufacturers))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnQues9)
-                    .addComponent(btnyearsearch))
+                    .addComponent(btnyearsearch)
+                    .addComponent(btnCity))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCity)
-                    .addComponent(btnMinMumSeats))
+                    .addComponent(btnMinMumSeats)
+                    .addComponent(btnExpiry))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnQues11)
-                    .addComponent(btnSerialNum))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnSerialNum)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAvailability, btnCarmanufacturers, btnCity, btnFirstCar, btnMinMumSeats, btnModelNum, btnQues11, btnQues9, btnSearchBrand, btnSerialNum, btnyearsearch});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAvailability, btnCarmanufacturers, btnCity, btnExpiry, btnFirstCar, btnMinMumSeats, btnModelNum, btnSearchBrand, btnSerialNum, btnyearsearch});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -268,15 +258,14 @@ public class SearchJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnyearsearchActionPerformed
 
-    private void btnQues11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQues11ActionPerformed
+    private void btnExpiryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExpiryActionPerformed
         
-//        String searchExpYear = null;
-//        String searchYear_cars = JOptionPane.showInputDialog(null, "Enter the year.", searchExpYear);
-//        ArrayList<CarDetails> list = history.filterByExpYear(searchYear_cars);
-//        
-//        populateTable(list);
+       ArrayList<CarDetails> list = history.filterByExpiry();
+        
+        populateTable(list);
+        
 
-    }//GEN-LAST:event_btnQues11ActionPerformed
+    }//GEN-LAST:event_btnExpiryActionPerformed
 
     private void btnCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCityActionPerformed
         
@@ -355,11 +344,10 @@ public class SearchJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnAvailability;
     private javax.swing.JButton btnCarmanufacturers;
     private javax.swing.JButton btnCity;
+    private javax.swing.JButton btnExpiry;
     private javax.swing.JButton btnFirstCar;
     private javax.swing.JButton btnMinMumSeats;
     private javax.swing.JButton btnModelNum;
-    private javax.swing.JButton btnQues11;
-    private javax.swing.JButton btnQues9;
     private javax.swing.JButton btnSearchBrand;
     private javax.swing.JButton btnSerialNum;
     private javax.swing.JButton btnyearsearch;

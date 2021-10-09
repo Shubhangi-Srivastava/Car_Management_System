@@ -30,19 +30,23 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
-              <Component id="btnAvailability" linkSize="3" min="-2" pref="395" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Component id="btnModelNum" linkSize="4" min="-2" pref="292" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jTextField1" min="-2" pref="0" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="337" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="btnMinMumSeats" linkSize="3" min="-2" pref="392" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnExpiry" linkSize="4" min="-2" pref="298" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="btnAvailability" linkSize="3" min="-2" pref="395" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="btnModelNum" linkSize="4" min="-2" pref="292" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jTextField1" min="-2" pref="0" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btnyearsearch" linkSize="3" min="-2" pref="383" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnQues9" linkSize="4" min="-2" pref="292" max="-2" attributes="0"/>
+                      <Component id="btnCity" linkSize="4" min="-2" pref="292" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btnSearchBrand" linkSize="3" min="-2" pref="404" max="-2" attributes="0"/>
@@ -57,23 +61,12 @@
                       <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
                       <Component id="btnFirstCar" min="-2" pref="395" max="-2" attributes="0"/>
                   </Group>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="btnSerialNum" linkSize="3" min="-2" pref="392" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnQues11" linkSize="4" min="-2" pref="298" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnMinMumSeats" linkSize="3" min="-2" pref="392" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnCity" linkSize="4" min="-2" pref="292" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
+                      <Component id="btnSerialNum" min="-2" pref="497" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <EmptySpace min="337" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -99,20 +92,17 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnQues9" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnyearsearch" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnCity" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnMinMumSeats" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnQues11" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSerialNum" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnMinMumSeats" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnExpiry" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnSerialNum" linkSize="2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="12" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -166,11 +156,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCityActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnQues9">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="When was the last time the fleet catalog was updated."/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="btnCarmanufacturers">
       <Properties>
         <Property name="text" type="java.lang.String" value="List all the car manufacturers used by the (this) Uber."/>
@@ -187,12 +172,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModelNumActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnQues11">
+    <Component class="javax.swing.JButton" name="btnExpiry">
       <Properties>
         <Property name="text" type="java.lang.String" value="List all cars that have expired maintenance certificate."/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQues11ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExpiryActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnSerialNum">

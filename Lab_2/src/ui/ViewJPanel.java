@@ -6,6 +6,8 @@
 package ui;
 import java.io.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -65,6 +67,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         txtManufactureYear = new javax.swing.JTextField();
         DtMaintenanceExp = new javax.swing.JTextField();
+        txtUpdatedTime = new javax.swing.JTextField();
+        lblUpdatedFleetCatalog = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -163,6 +167,8 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblUpdatedFleetCatalog.setText("Last Updated fleet:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -173,28 +179,24 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnUpdate)
-                .addGap(7, 7, 7)
-                .addComponent(btnDelete)
-                .addGap(22, 22, 22))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCarName)
-                    .addComponent(lblAvailability)
-                    .addComponent(lblBrand)
-                    .addComponent(lblManufactureYear)
-                    .addComponent(lblNumberOfSeats)
-                    .addComponent(lblSerialNumber)
-                    .addComponent(lblModelNumber)
-                    .addComponent(lblCity)
-                    .addComponent(lblMaintCertExpirationDt))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAvailability)
+                            .addComponent(lblBrand)
+                            .addComponent(lblManufactureYear)
+                            .addComponent(lblNumberOfSeats)
+                            .addComponent(lblSerialNumber)
+                            .addComponent(lblModelNumber)
+                            .addComponent(lblCity)
+                            .addComponent(lblMaintCertExpirationDt))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblCarName)
+                        .addGap(72, 72, 72)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtCarName)
                     .addComponent(txtBrand)
@@ -205,7 +207,19 @@ public class ViewJPanel extends javax.swing.JPanel {
                     .addComponent(txtAvailability, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                     .addComponent(txtManufactureYear)
                     .addComponent(DtMaintenanceExp))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblUpdatedFleetCatalog)
+                .addGap(18, 18, 18)
+                .addComponent(txtUpdatedTime, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnUpdate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDelete)
+                .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,8 +232,10 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnView)
                     .addComponent(btnDelete)
-                    .addComponent(btnUpdate))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnUpdate)
+                    .addComponent(txtUpdatedTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUpdatedFleetCatalog))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -336,6 +352,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         DefaultTableModel model =(DefaultTableModel) tblCars.getModel();
         int selectedRowIndex = tblCars.getSelectedRow();
         
+        
         String car_name = model.getValueAt(selectedRowIndex, 0).toString();
         String availability = model.getValueAt(selectedRowIndex, 1).toString();
         String brand = model.getValueAt(selectedRowIndex, 2).toString();
@@ -366,6 +383,11 @@ public class ViewJPanel extends javax.swing.JPanel {
         model.setValueAt(newModelNumber, selectedRowIndex, 6);
         model.setValueAt(newCity, selectedRowIndex, 7);
         model.setValueAt(newMaintenance_expiration_dt, selectedRowIndex, 8);   
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime ldt = LocalDateTime.now();
+        txtUpdatedTime.setText(formatter.format(ldt));
+        txtUpdatedTime.setEditable(false);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
 
@@ -385,6 +407,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblNumberOfSeats;
     private javax.swing.JLabel lblSerialNumber;
     private javax.swing.JLabel lblTtile;
+    private javax.swing.JLabel lblUpdatedFleetCatalog;
     private javax.swing.JTable tblCars;
     private javax.swing.JTextField txtAvailability;
     private javax.swing.JTextField txtBrand;
@@ -394,6 +417,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtModelNumber;
     private javax.swing.JTextField txtNumberOfSeats;
     private javax.swing.JTextField txtSerialNumber;
+    private javax.swing.JTextField txtUpdatedTime;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {

@@ -166,29 +166,16 @@ public class CarDetailsHistory {
         return list;
     }
    
-//    public ArrayList<CarDetails> filterByExpYear(String manu_date) {
-//        
-//        ArrayList<CarDetails> list = new ArrayList<>();
-//        for(CarDetails c: history) {
-//           // String maint = String.valueOf(c.getMaint_cert_expiration_dt());
-//           // if(c.getMaint_cert_expiration_dt().i)
-//           
-//           SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy");
-//           simpleDateFormat.setLenient(false);
-//           Date expiry = null;
-//            try {
-//                expiry = simpleDateFormat.parse(manu_date);
-//            } catch (ParseException ex) {
-//                Logger.getLogger(CarDetailsHistory.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            
-//    boolean expired = expiry.before(new Date());
-//    
-//    if (expired == true  ) 
-//    {
-//        list.add(c);//JOptionPane.showMessageDialog(null, "This maintenance certificate has already expired");
-//    }
-//        }
-//        return list;
-//    }
+    
+    public ArrayList<CarDetails> filterByExpiry() {
+          ArrayList<CarDetails> list = new ArrayList<>();
+        for(CarDetails c : history) {
+         
+         if(c.getMaint_cert_expiration_dt().equalsIgnoreCase("yes")) {
+             list.add(c);
+         }
+        }
+        JOptionPane.showMessageDialog(null, "Displaying list of Cars that have expired maintenance certification.");
+        return list;
+    }  
 }
