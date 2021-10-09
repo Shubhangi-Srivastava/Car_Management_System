@@ -51,13 +51,11 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtCarName = new javax.swing.JTextField();
         lblBrand = new javax.swing.JLabel();
         lblManufactureYear = new javax.swing.JLabel();
-        DtManufactureYear = new com.toedter.calendar.JDateChooser();
         lblNumberOfSeats = new javax.swing.JLabel();
         txtBrand = new javax.swing.JTextField();
         lblSerialNumber = new javax.swing.JLabel();
         lblModelNumber = new javax.swing.JLabel();
         txtNumberOfSeats = new javax.swing.JTextField();
-        DtMaintenanceExp = new com.toedter.calendar.JDateChooser();
         txtSerialNumber = new javax.swing.JTextField();
         txtAvailability = new javax.swing.JTextField();
         txtModelNumber = new javax.swing.JTextField();
@@ -65,6 +63,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtCity = new javax.swing.JTextField();
         lblMaintCertExpirationDt = new javax.swing.JLabel();
         btnUpdate = new javax.swing.JButton();
+        txtManufactureYear = new javax.swing.JTextField();
+        DtMaintenanceExp = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -173,9 +173,9 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnUpdate)
@@ -194,17 +194,17 @@ public class ViewJPanel extends javax.swing.JPanel {
                     .addComponent(lblModelNumber)
                     .addComponent(lblCity)
                     .addComponent(lblMaintCertExpirationDt))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtCarName)
                     .addComponent(txtBrand)
                     .addComponent(txtSerialNumber)
                     .addComponent(txtModelNumber)
                     .addComponent(txtCity)
-                    .addComponent(DtManufactureYear, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(txtNumberOfSeats)
-                    .addComponent(DtMaintenanceExp, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(txtAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAvailability, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                    .addComponent(txtManufactureYear)
+                    .addComponent(DtMaintenanceExp))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -214,7 +214,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addComponent(lblTtile, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnView)
                     .addComponent(btnDelete)
@@ -230,38 +230,37 @@ public class ViewJPanel extends javax.swing.JPanel {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                            .addGroup(layout.createSequentialGroup()
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                    .addComponent(lblCarName)
-                                                                    .addComponent(txtCarName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGap(17, 17, 17)
-                                                                .addComponent(lblAvailability)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(lblBrand))
-                                                            .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(txtAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(txtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                            .addComponent(lblCarName)
+                                                            .addComponent(txtCarName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGap(17, 17, 17)
+                                                        .addComponent(lblAvailability)
                                                         .addGap(18, 18, 18)
-                                                        .addComponent(lblManufactureYear)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(lblNumberOfSeats))
+                                                        .addComponent(lblBrand))
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(DtManufactureYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(txtNumberOfSeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addComponent(txtAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(txtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addGap(18, 18, 18)
-                                                .addComponent(lblSerialNumber))
-                                            .addComponent(txtSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(lblManufactureYear)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(lblNumberOfSeats))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(txtManufactureYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtNumberOfSeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(18, 18, 18)
-                                        .addComponent(lblModelNumber))
-                                    .addComponent(txtModelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblSerialNumber))
+                                    .addComponent(txtSerialNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(lblCity))
-                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblModelNumber))
+                            .addComponent(txtModelNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(lblMaintCertExpirationDt))
+                        .addComponent(lblCity))
+                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblMaintCertExpirationDt)
                     .addComponent(DtMaintenanceExp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -304,12 +303,12 @@ public class ViewJPanel extends javax.swing.JPanel {
        txtCarName.setText(String.valueOf(selectedCars.getCar_name()));
        txtAvailability.setText(String.valueOf(selectedCars.getAvailability()));
        txtBrand.setText((String.valueOf(selectedCars.getBrand())));
-       DtManufactureYear.setDate(selectedCars.getManufacture_year());
+       txtManufactureYear.setText(String.valueOf(selectedCars.getManufacture_year()));
        txtNumberOfSeats.setText(String.valueOf(selectedCars.getMin_max_seats()));
        txtSerialNumber.setText(String.valueOf(selectedCars.getSerial_number()));
        txtModelNumber.setText(String.valueOf(selectedCars.getModel_num()));
        txtCity.setText(String.valueOf(selectedCars.getCity()));
-       DtMaintenanceExp.setDate(selectedCars.getMaint_cert_expiration_dt());
+       DtMaintenanceExp.setText(String.valueOf(selectedCars.getMaint_cert_expiration_dt()));
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void txtBrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBrandActionPerformed
@@ -371,8 +370,7 @@ public class ViewJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser DtMaintenanceExp;
-    private com.toedter.calendar.JDateChooser DtManufactureYear;
+    private javax.swing.JTextField DtMaintenanceExp;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
@@ -392,6 +390,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtBrand;
     private javax.swing.JTextField txtCarName;
     private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtManufactureYear;
     private javax.swing.JTextField txtModelNumber;
     private javax.swing.JTextField txtNumberOfSeats;
     private javax.swing.JTextField txtSerialNumber;

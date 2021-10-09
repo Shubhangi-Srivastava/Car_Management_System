@@ -20,22 +20,41 @@ public class CarDetails {
     private String car_name;
     private String availability;
     private String brand;
-    private Date manufacture_year;
+    private String manufacture_year;
     private int min_max_seats;
     private long serial_number;
     private String model_num;
     private String city;
-    private Date maint_cert_expiration_dt;
+    private String maint_cert_expiration_dt;
+
+    public String getMaint_cert_expiration_dt() {
+        return maint_cert_expiration_dt;
+    }
+
+    public void setMaint_cert_expiration_dt(String maint_cert_expiration_dt) {
+        this.maint_cert_expiration_dt = maint_cert_expiration_dt;
+    }
+    
+
+    public String getManufacture_year() {
+        return manufacture_year;
+    }
+
+    public void setManufacture_year(String manufacture_year) {
+        this.manufacture_year = manufacture_year;
+    }
+    
 
     public String getAvailability() {
         return availability;
     }
 
     public void setAvailability(String availability) {
-        try{
+        
+        if(!availability.contains("") && !availability.isBlank()) {
         this.availability = availability;
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Please check valid checkbox");
+        } else {
+            JOptionPane.showMessageDialog(null, "Please check atleast one checkbox for availability.");
         }
     } 
 
@@ -65,13 +84,7 @@ public class CarDetails {
         }    
     }
 
-    public Date getManufacture_year() {
-        return manufacture_year;
-    }
-
-    public void setManufacture_year(Date manufacture_year) {
-        this.manufacture_year = manufacture_year;
-    }
+    
 
     public int getMin_max_seats() {
         return min_max_seats;
@@ -112,13 +125,7 @@ public class CarDetails {
         this.city = city;
     }
 
-    public Date getMaint_cert_expiration_dt() {
-        return maint_cert_expiration_dt;
-    }
-
-    public void setMaint_cert_expiration_dt(Date maint_cert_expiration_dt) {
-        this.maint_cert_expiration_dt = maint_cert_expiration_dt;
-    }
+  
     
     
     @Override

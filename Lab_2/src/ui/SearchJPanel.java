@@ -7,6 +7,7 @@ package ui;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.CarDetails;
 import model.CarDetailsHistory;
 
@@ -31,24 +32,40 @@ public class SearchJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnQues1 = new javax.swing.JButton();
-        btnQues2 = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        btnFirstCar = new javax.swing.JButton();
+        btnAvailability = new javax.swing.JButton();
         btnSearchBrand = new javax.swing.JButton();
-        btnQues4 = new javax.swing.JButton();
-        btnQues5 = new javax.swing.JButton();
-        btnQues10 = new javax.swing.JButton();
+        btnyearsearch = new javax.swing.JButton();
+        btnMinMumSeats = new javax.swing.JButton();
+        btnCity = new javax.swing.JButton();
         btnQues9 = new javax.swing.JButton();
-        btnQues8 = new javax.swing.JButton();
-        btnQues7 = new javax.swing.JButton();
+        btnCarmanufacturers = new javax.swing.JButton();
+        btnModelNum = new javax.swing.JButton();
         btnQues11 = new javax.swing.JButton();
-        btnQues6 = new javax.swing.JButton();
+        btnSerialNum = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
+        txtTitle = new javax.swing.JTextField();
 
-        btnQues1.setText("Find me the first available passenger car.");
+        jTextField2.setText("jTextField2");
 
-        btnQues2.setText("How many cars are currently available? How many are not?");
+        setBackground(new java.awt.Color(204, 204, 255));
+
+        btnFirstCar.setText("Find me the first available passenger car.");
+        btnFirstCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFirstCarActionPerformed(evt);
+            }
+        });
+
+        btnAvailability.setText("How many cars are currently available? How many are not?");
+        btnAvailability.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvailabilityActionPerformed(evt);
+            }
+        });
 
         btnSearchBrand.setText("List all cars that are made by Toyota, GM, etc.");
         btnSearchBrand.addActionListener(new java.awt.event.ActionListener() {
@@ -57,24 +74,65 @@ public class SearchJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnQues4.setText("List all cars that were manufactured in a given year, ‘x’.");
+        btnyearsearch.setText("List all cars that were manufactured in a given year, ‘x’.");
+        btnyearsearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnyearsearchActionPerformed(evt);
+            }
+        });
 
-        btnQues5.setText("List all cars with a minimum of x seats but no more than y seats.");
+        btnMinMumSeats.setText("List all cars with a minimum of x seats but no more than y seats.");
+        btnMinMumSeats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinMumSeatsActionPerformed(evt);
+            }
+        });
 
-        btnQues10.setText("List all cars that are available in a given city.");
+        btnCity.setText("List all cars that are available in a given city.");
+        btnCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCityActionPerformed(evt);
+            }
+        });
 
         btnQues9.setText("When was the last time the fleet catalog was updated.");
 
-        btnQues8.setText("List all the car manufacturers used by the (this) Uber.");
+        btnCarmanufacturers.setText("List all the car manufacturers used by the (this) Uber.");
+        btnCarmanufacturers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCarmanufacturersActionPerformed(evt);
+            }
+        });
 
-        btnQues7.setText("List all cars given the model number.");
+        btnModelNum.setText("List all cars given the model number.");
+        btnModelNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModelNumActionPerformed(evt);
+            }
+        });
 
         btnQues11.setText("List all cars that have expired maintenance certificate.");
+        btnQues11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQues11ActionPerformed(evt);
+            }
+        });
 
-        btnQues6.setText("Find a car with the given serial number. List the attributes of the found car.");
+        btnSerialNum.setText("Find a car with the given serial number. List the attributes of the found car.");
+        btnSerialNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSerialNumActionPerformed(evt);
+            }
+        });
 
+        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jTable1.setForeground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -96,104 +154,251 @@ public class SearchJPanel extends javax.swing.JPanel {
 
         jTextField1.setText("jTextField1");
 
+        txtTitle.setFont(new java.awt.Font("Chalkboard", 0, 18)); // NOI18N
+        txtTitle.setText("Car Search Results");
+        txtTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtTitle.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtTitle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTitleActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(btnQues6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(btnAvailability, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(btnModelNum, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(337, 337, 337))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnQues5, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(btnQues11, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                        .addComponent(btnyearsearch, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnQues9, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnQues4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(27, 27, 27)
-                        .addComponent(btnQues10, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnSearchBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCarmanufacturers, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnQues1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnQues2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(btnSearchBrand, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnQues8, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnQues9, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(btnQues7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(17, 17, 17))
+                        .addGap(325, 325, 325)
+                        .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(224, 224, 224)
+                        .addComponent(btnFirstCar, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSerialNum, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnQues11, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnMinMumSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCity, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, 0))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAvailability, btnMinMumSeats, btnSearchBrand, btnSerialNum, btnyearsearch});
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnCarmanufacturers, btnCity, btnModelNum, btnQues11, btnQues9});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
+                .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnQues1)
-                    .addComponent(btnQues7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnQues2)
-                    .addComponent(btnQues8))
-                .addGap(4, 4, 4)
+                .addComponent(btnFirstCar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModelNum)
+                    .addComponent(btnAvailability))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSearchBrand)
-                    .addComponent(btnQues9))
+                    .addComponent(btnCarmanufacturers))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnQues4)
-                    .addComponent(btnQues10))
+                    .addComponent(btnQues9)
+                    .addComponent(btnyearsearch))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnQues5)
-                    .addComponent(btnQues11))
+                    .addComponent(btnCity)
+                    .addComponent(btnMinMumSeats))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnQues6)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnQues11)
+                    .addComponent(btnSerialNum))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnQues1, btnQues10, btnQues11, btnQues2, btnQues4, btnQues5, btnQues6, btnQues7, btnQues8, btnQues9, btnSearchBrand});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAvailability, btnCarmanufacturers, btnCity, btnFirstCar, btnMinMumSeats, btnModelNum, btnQues11, btnQues9, btnSearchBrand, btnSerialNum, btnyearsearch});
 
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchBrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchBrandActionPerformed
         
-       // String brand = JOptionPane.showMessageDialog(null, "Enter the brand name of the car", brand);
-       // ArrayList<CarDetails> list = history.filterByBrand();
+        //String brand = model.getValueAt(selectedRowIndex, 2).toString();
+        String searchBrand = null;
+        String brand = JOptionPane.showInputDialog(null, "Enter the brand name of the car", searchBrand);
+        ArrayList<CarDetails> list = history.filterByBrand(brand);
         
+        populateTable(list);
+    }//GEN-LAST:event_btnSearchBrandActionPerformed
 
+    private void btnyearsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnyearsearchActionPerformed
+
+        String searchYear = null;
+        String searchYear_cars = JOptionPane.showInputDialog(null, "Enter the year.", searchYear);
+        ArrayList<CarDetails> list = history.filterByYear(searchYear_cars);
+        
+        populateTable(list);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnyearsearchActionPerformed
+
+    private void btnQues11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQues11ActionPerformed
+        
+//        String searchExpYear = null;
+//        String searchYear_cars = JOptionPane.showInputDialog(null, "Enter the year.", searchExpYear);
+//        ArrayList<CarDetails> list = history.filterByExpYear(searchYear_cars);
+//        
+//        populateTable(list);
+
+    }//GEN-LAST:event_btnQues11ActionPerformed
+
+    private void btnCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCityActionPerformed
+        
+        String searchCity = null;
+        String city = JOptionPane.showInputDialog(null, "Enter the City.", searchCity);
+        ArrayList<CarDetails> list = history.filterByCity(city);
+        
+        populateTable(list);
 
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSearchBrandActionPerformed
+    }//GEN-LAST:event_btnCityActionPerformed
+
+    private void btnModelNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModelNumActionPerformed
+
+         String searchModelNum = null;
+        String modelNum = JOptionPane.showInputDialog(null, "Enter the model number.", searchModelNum);
+        ArrayList<CarDetails> list = history.filterByModelNum(modelNum);
+        
+        populateTable(list);
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModelNumActionPerformed
+
+    private void btnSerialNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSerialNumActionPerformed
+        
+         String searchSerialNum = null;
+        String serialNum = JOptionPane.showInputDialog(null, "Enter the model number.", searchSerialNum);
+        ArrayList<CarDetails> list = history.filterBySerialNum(serialNum);
+        
+        populateTable(list);
+        
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSerialNumActionPerformed
+
+    private void btnAvailabilityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvailabilityActionPerformed
+
+        ArrayList<CarDetails> list = history.filterByAvailability();
+        populateTable(list);      
+    }//GEN-LAST:event_btnAvailabilityActionPerformed
+
+    private void btnFirstCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstCarActionPerformed
+  
+        ArrayList<CarDetails> list = history.filterByFirstCar();
+        populateTable(list);
+       
+    }//GEN-LAST:event_btnFirstCarActionPerformed
+
+    private void btnCarmanufacturersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarmanufacturersActionPerformed
+        
+        ArrayList<CarDetails> list = history.filterByManufacturer();
+        
+        populateTable(list);
+    }//GEN-LAST:event_btnCarmanufacturersActionPerformed
+
+    private void btnMinMumSeatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinMumSeatsActionPerformed
+
+        String minSeats = null;
+        String maxSeats = null;
+        String minSeat = JOptionPane.showInputDialog(null, "Please Enter the minimum seats required.", minSeats);
+        String maxSeat = JOptionPane.showInputDialog(null, "Please Enter the maximum seats required.", maxSeats);
+        ArrayList<CarDetails> list = history.filterBySeatCount(minSeat, maxSeat);
+        
+        populateTable(list);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMinMumSeatsActionPerformed
+
+    private void txtTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTitleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnQues1;
-    private javax.swing.JButton btnQues10;
+    private javax.swing.JButton btnAvailability;
+    private javax.swing.JButton btnCarmanufacturers;
+    private javax.swing.JButton btnCity;
+    private javax.swing.JButton btnFirstCar;
+    private javax.swing.JButton btnMinMumSeats;
+    private javax.swing.JButton btnModelNum;
     private javax.swing.JButton btnQues11;
-    private javax.swing.JButton btnQues2;
-    private javax.swing.JButton btnQues4;
-    private javax.swing.JButton btnQues5;
-    private javax.swing.JButton btnQues6;
-    private javax.swing.JButton btnQues7;
-    private javax.swing.JButton btnQues8;
     private javax.swing.JButton btnQues9;
     private javax.swing.JButton btnSearchBrand;
+    private javax.swing.JButton btnSerialNum;
+    private javax.swing.JButton btnyearsearch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtTitle;
     // End of variables declaration//GEN-END:variables
+
+
+private void populateTable(ArrayList<CarDetails> list) {
+    
+    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    model.setRowCount(0);
+    
+    for(CarDetails cd : list) {
+        
+        Object[] row = new Object[9];
+        row[0] = cd;
+        if(cd.getAvailability() == "yes"){
+            row[1]="Yes";
+       } else if(cd.getAvailability() == "no"){
+              row[1]="No";
+          }else{
+       row[1] = "No";
+     }
+        row[2] = cd.getBrand();
+        row[3] = cd.getManufacture_year();
+        row[4] = cd.getMin_max_seats();
+        row[5] = cd.getSerial_number();
+        row[6] = cd.getModel_num();
+        row[7] = cd.getCity();
+        row[8] = cd.getMaint_cert_expiration_dt();
+        
+        model.addRow(row);
+    }
+    }
+
 }
+
+
